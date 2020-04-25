@@ -18,7 +18,7 @@ export default class GameModel {
   }
 
   getAnswers() {
-
+    this._state = Object.assign({}, this.state, {score: this._state.score + this.state.score});
   }
 
   tick() {

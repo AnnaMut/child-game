@@ -22,7 +22,8 @@ gulp.task(`scripts`, () => {
     .pipe(sourcemaps.init())
     .pipe(rollup({}, `iife`))
     .pipe(sourcemaps.write(``))
-    .pipe(gulp.dest(`build/js`));
+    .pipe(gulp.dest(`build/js`))
+    .pipe(server.stream());
 });
 
 gulp.task(`imagemin`, [`copy`], () => {
