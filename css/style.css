@@ -161,7 +161,7 @@ img:not(.close) {
   border-radius: 5px;
 }
 
-.hidden {
+.hidden-ch {
   visibility : hidden;
 }
 

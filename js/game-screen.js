@@ -42,7 +42,7 @@ export default (state) => {
     card.nextElementSibling.classList.toggle(`visually-hidden`);
     card.parentElement.classList.toggle(`choose`);
 
-    let choosenCards = document.querySelectorAll(`.choose img:not(.visually-hidden):not(.hidden)`);
+    let choosenCards = document.querySelectorAll(`.choose img:not(.visually-hidden):not(.hidden-ch)`);
     // let newScore;
     let correctanswer;
     if (choosenCards && choosenCards.length > 1) {
@@ -50,7 +50,7 @@ export default (state) => {
         // newScore = document.querySelectorAll(`.close`).length * 42;
         correctanswer = 1;
         choosenCards.forEach((item) => {
-          item.classList.add(`hidden`);
+          item.classList.add(`hidden-ch`);
         });
       } else {
         correctanswer = 0;
@@ -62,8 +62,9 @@ export default (state) => {
             item.previousElementSibling.classList.remove(`visually-hidden`);
           });
         }, ONE_SECOND);
-        calculateScore(correctanswer, 6);
+
       }
+      calculateScore(correctanswer, 6);
     }
     const newState = Object.assign({}, initialState, {score: state.score + calculateScore()});
     screen.updateHeader(newState);
